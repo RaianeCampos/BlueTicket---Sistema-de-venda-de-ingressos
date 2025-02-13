@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="purchaseForm">
+      <h1>Finalizar Compra</h1>
+      <input type="hidden" id="ticketId" value="{{ticketId}}">
+      <div class="form-contents">
+        <label for="clientCode">Código do Cliente:</label>
+        <input type="text" id="clientCode" name="clientCode" required>
+      </div>
+      <div class="form-contents">
+        <label for="clientName">Nome:</label>
+        <input type="text" id="clientName" name="clientName" required>
+      </div>
+      <div class="form-contents">
+        <label for="clientPhone">Telefone:</label>
+        <input type="text" id="clientPhone" name="clientPhone" required>
+      </div>
+      <div class="form-contents">
+        <label for="clientEmail">E-mail:</label>
+        <input type="email" id="clientEmail" name="clientEmail" required>
+      </div>
+      <div class="form-contents">
+        <label for="quantity">Quantidade:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+      </div>
+      <button type="submit" class="btn">Finalizar Compra</button>
+      <p id="error" class="error"></p>
+    </form>
+  </div>
+  <script src="/javascripts/purchaseForm.js"></script>
+</body>
+</html>

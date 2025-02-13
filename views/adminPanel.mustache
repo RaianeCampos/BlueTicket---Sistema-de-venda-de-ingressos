@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Administrador</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container" >
+    <h1>Área do Administrador</h1>
+
+     <!-- Botão para voltar à página principal de tickets -->
+    <button onclick="location.href='/tickets'" class="btn-back">Ir para Ingressos</button>
+
+    <!-- Formulário para criar usuários -->
+    <div id="adminPainel">
+      <div class="row">
+        <form id="createUserForm">
+          <h2>Criar Novo Usuário</h2>
+          <div class="form-contents">
+          <input type="text" id="username" placeholder="Nome de usuário" required>
+          </div>
+           <div class="form-contents">
+          <input type="password" id="password" placeholder="Senha" required>
+          </div>
+          <label>
+            <input type="checkbox" id="isAdmin"> Administrador
+          </label>
+          <button type="submit">Criar Usuário</button>
+        </form>
+
+        <!-- Formulário para criar ingressos -->
+        <form id="createTicketForm">
+          <h2>Criar Novo Ingresso</h2>
+           <div class="form-contents">
+          <input type="text" id="name" placeholder="Nome do ingresso" required>
+          </div>
+           <div class="form-contents">
+          <input type="number" id="price" placeholder="Preço" required>
+          </div>
+           <div class="form-contents">
+          <input type="number" id="quantity" placeholder="Quantidade" required>
+          </div>
+           <div class="form-contents">
+          <select id="type" required>
+            <option value="Inteiro">Inteiro</option>
+            <option value="Social">Social</option>
+            <option value="Meia Entrada">Meia Entrada</option>
+            <option value="VIP">VIP</option>
+            <option value="Camarotes">Camarotes</option>
+          </select>
+          </div>
+           <div class="form-contents">
+          <input type="text" id="image" placeholder="URL da imagem">
+          </div>
+           <div class="form-contents">
+          <textarea id="description" placeholder="Descrição"></textarea>
+          </div>
+          <button type="submit">Criar Ingresso</button>
+        </form>
+      </div>
+
+        <!-- Lista de usuários -->
+    <div class="row">
+      <div id="listUsers">
+        <h2>Usuários</h2>
+        <ul id="usersList">
+          {{#users}}
+            <li>{{username}} ({{#isAdmin}}Admin{{/isAdmin}}{{^isAdmin}}Usuário{{/isAdmin}})</li>
+          {{/users}}
+        </ul>
+      </div>
+    
+
+      <!-- Lista de ingressos -->
+      <div id="listTickets">
+        <h2>Ingressos</h2>
+        <ul id="ticketsList">
+          {{#tickets}}
+            <li>{{name}} - R$ {{price}} - ({{quantity}} disponíveis) - Tipo {{type}}</li>
+          {{/tickets}}
+        </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script src="/javascripts/admin.js"></script>
+</body>
+</html>

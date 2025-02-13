@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico de Compras</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container">
+  <div id="comprasHisto">
+    <h1>Histórico de Compras</h1>
+    <ul id="purchasesList">
+      {{#purchases}}
+        <li>
+          <p>Evento: {{ticket.name}}</p>
+          <p>Quantidade: {{quantity}}</p>
+          <p>Status: {{status}}</p>
+        </li>
+      {{/purchases}}
+    </ul>
+    <p id="error" class="error"></p>
+    <a href="/tickets" class="btn">Voltar para Eventos</a>
+  </div>
+  <script src="/javascripts/main.js"></script>
+</body>
+</html>

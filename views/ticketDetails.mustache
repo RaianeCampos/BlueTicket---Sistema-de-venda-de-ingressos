@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Evento</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="event-details">
+      <h1>{{ticket.name}}</h1> <!-- Título do evento -->
+      <div class="event-image">
+        <img src="/images/tarcisio.jpg" alt="{{ticket.name}}"> <!-- Imagem do evento -->
+      </div>
+      <div class="event-info">
+        <p><strong>Preço:</strong> R$ {{ticket.price}}</p>
+        <p><strong>Quantidade disponível:</strong> {{ticket.quantity}}</p>
+        <p><strong>Descrição:</strong> {{ticket.description}}</p> <!-- Subtítulo/descrição -->
+      </div>
+      <a href="/tickets" class="btn">Voltar para Eventos</a>
+    </div>
+  </div>
+</body>
+</html>

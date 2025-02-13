@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Disponíveis</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="header">
+    <div>
+      <button class="btn" onclick="location.href='/purchases'">Ver Histórico de Compras</button>
+    </div>
+    <div>
+      <button class="btn" onclick="location.href='/login'">Sair</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 id="eventosh1">Eventos Disponíveis</h1>
+    <div id="eventsList" class="events-list">
+      {{#tickets}}
+        <div class="event-card">
+          <div class="event-image">
+            <img src="/images/tarcisio.jpg" >
+          </div>
+          <div class="event-details">
+            <h2>{{name}}</h2>
+             <p><strong>Tipo:</strong> {{type}}</p> <!-- Exibe o tipo de ingresso -->
+            <p><strong>Preço:</strong> R$ {{price}}</p>
+            <p><strong>Quantidade disponível:</strong> {{quantity}}</p>
+            <button onclick="buyTicket({{id}})">Comprar</button>
+            <a href="/tickets/{{id}}" class="details-link">Ver Detalhes</a>
+          </div>
+        </div>
+      {{/tickets}}
+    </div>
+   
+    <p id="error" class="error"></p>
+  </div>
+  <script src="/javascripts/main.js"></script>
+</body>
+</html>
