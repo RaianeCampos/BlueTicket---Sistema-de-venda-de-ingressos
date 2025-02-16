@@ -68,6 +68,7 @@
         <ul id="usersList">
           {{#users}}
             <li>{{username}} ({{#isAdmin}}Admin{{/isAdmin}}{{^isAdmin}}Usuário{{/isAdmin}})</li>
+             <button class="delete-user-btn" data-id="{{id}}">Excluir</button>
           {{/users}}
         </ul>
       </div>
@@ -79,6 +80,7 @@
         <ul id="ticketsList">
           {{#tickets}}
             <li>{{name}} - R$ {{price}} - ({{quantity}} disponíveis) - Tipo {{type}}</li>
+             <button class="delete-ticket-btn" data-id="{{id}}">Excluir</button>
           {{/tickets}}
         </ul>
       </div>

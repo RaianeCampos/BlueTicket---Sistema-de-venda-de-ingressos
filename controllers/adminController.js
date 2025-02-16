@@ -100,3 +100,39 @@ exports.editTicket = async (req, res) => {
     res.status(500).json({ error: 'Erro ao editar ingresso.' });
   }
 };
+
+// Função para excluir um usuário
+exports.deleteUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
+
+    await user.destroy(); // Remove o usuário do banco de dados
+    res.status(200).json({ message: 'Usuário excluído com sucesso!' });
+  } catch (error) {
+    console.error('Erro ao excluir usuário:', error);
+    res.status(500).json({ error: 'Erro ao excluir usuário.' });
+  }
+};
+
+// Função para excluir um ingresso
+exports.deleteTicket = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const ticket = await Ticket.findByPk(id);
+    if (!ticket) {
+      return res.status(404).json({ error: 'Ingresso não encontrado.' });
+    }
+
+    await ticket.destroy(); // Remove o ingresso do banco de dados
+    res.status(200).json({ message: 'Ingresso excluído com sucesso!' });
+  } catch (error) {
+    console.error('Erro ao excluir ingresso:', error);
+    res.status(500).json({ error: 'Erro ao excluir ingresso.' });
+  }
+};

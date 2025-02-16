@@ -16,4 +16,10 @@ router.post('/users', authMiddleware.isAdmin, adminController.createUser);
 // Rota para criar ingressos
 router.post('/tickets', authMiddleware.isAdmin, adminController.createTicket);
 
+// Rota para excluir um usuário
+router.delete('/users/:id', authMiddleware.isAdmin, adminController.deleteUser);
+
+// Rota para excluir um ingresso
+router.delete('/tickets/:id', authMiddleware.isAdmin, adminController.deleteTicket);
+
 module.exports = router;

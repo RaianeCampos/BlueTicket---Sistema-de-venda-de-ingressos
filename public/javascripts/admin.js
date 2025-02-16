@@ -60,3 +60,51 @@ document.getElementById('createUserForm').addEventListener('submit', async (e) =
       alert('Erro ao conectar ao servidor.');
     }
   });
+
+  // Excluir Usuário
+document.querySelectorAll('.delete-user-btn').forEach(button => {
+  button.addEventListener('click', async () => {
+    const userId = button.getAttribute('data-id');
+
+    if (confirm('Tem certeza que deseja excluir este usuário?')) {
+      try {
+        const response = await fetch(`/admin/users/${userId}`, {
+          method: 'DELETE'
+        });
+
+        if (response.ok) {
+          alert('Usuário excluído com sucesso!');
+          window.location.reload();
+        } else {
+          alert('Erro ao excluir usuário.');
+        }
+      } catch (error) {
+        console.error('Erro ao excluir usuário:', error);
+      }
+    }
+  });
+});
+
+// Excluir Ingresso
+document.querySelectorAll('.delete-ticket-btn').forEach(button => {
+  button.addEventListener('click', async () => {
+    const ticketId = button.getAttribute('data-id');
+
+    if (confirm('Tem certeza que deseja excluir este ingresso?')) {
+      try {
+        const response = await fetch(`/admin/tickets/${ticketId}`, {
+          method: 'DELETE'
+        });
+
+        if (response.ok) {
+          alert('Ingresso excluído com sucesso!');
+          window.location.reload();
+        } else {
+          alert('Erro ao excluir ingresso.');
+        }
+      } catch (error) {
+        console.error('Erro ao excluir ingresso:', error);
+      }
+    }
+  });
+});
