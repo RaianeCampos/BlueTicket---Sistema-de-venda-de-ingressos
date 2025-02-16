@@ -79,10 +79,46 @@
         <h2>Ingressos</h2>
         <ul id="ticketsList">
           {{#tickets}}
-            <li>{{name}} - R$ {{price}} - ({{quantity}} disponíveis) - Tipo {{type}}</li>
-             <button class="delete-ticket-btn" data-id="{{id}}">Excluir</button>
+            <li>
+              <span id="ticket-name-{{id}}">{{name}}</span> - 
+              R$ <span id="ticket-price-{{id}}">{{price}}</span> - 
+              (<span id="ticket-quantity-{{id}}">{{quantity}}</span> disponíveis) - 
+              Tipo <span id="ticket-type-{{id}}">{{type}}</span>
+          </li>
+          <button class="edit-ticket-btn" data-id="{{id}}">Editar</button>
+           <button class="delete-ticket-btn" data-id="{{id}}">Excluir</button>
           {{/tickets}}
         </ul>
+        <!-- Modal de Edição de Ingressos -->
+<div id="editTicketModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h2>Editar Ingresso</h2>
+    <form id="editTicketForm">
+      <input type="hidden" id="edit-ticket-id">
+      <label>Nome:</label>
+      <input type="text" id="edit-ticket-name" required>
+      <label>Preço:</label>
+      <input type="number" id="edit-ticket-price" required>
+      <label>Quantidade:</label>
+      <input type="number" id="edit-ticket-quantity" required>
+      <label>Tipo:</label>
+      <select id="edit-ticket-type">
+        <option value="Inteiro">Inteiro</option>
+        <option value="Social">Social</option>
+        <option value="Meia Entrada">Meia Entrada</option>
+        <option value="VIP">VIP</option>
+        <option value="Camarotes">Camarotes</option>
+      </select>
+      <label>Imagem (URL):</label>
+      <input type="text" id="edit-ticket-image">
+      <label>Descrição:</label>
+      <textarea id="edit-ticket-description"></textarea>
+      <button type="submit">Salvar Alterações</button>
+      <button type="button" onclick="closeEditModal()">Cancelar</button>
+    </form>
+  </div>
+</div>
+
       </div>
     </div>
     </div>

@@ -108,3 +108,66 @@ document.querySelectorAll('.delete-ticket-btn').forEach(button => {
     }
   });
 });
+
+// Função para abrir o modal de edição
+document.querySelectorAll('.edit-ticket-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const ticketId = button.getAttribute('data-id');
+    document.getElementById('edit-ticket-id').value = ticketId;
+
+    const nameElement = document.getElementById(`ticket-name-${ticketId}`);
+    const priceElement = document.getElementById(`ticket-price-${ticketId}`);
+    const quantityElement = document.getElementById(`ticket-quantity-${ticketId}`);
+    const typeElement = document.getElementById(`ticket-type-${ticketId}`);
+
+    if (nameElement && priceElement && quantityElement && typeElement) {
+      document.getElementById('edit-ticket-name').value = nameElement.innerText;
+      document.getElementById('edit-ticket-price').value = priceElement.innerText;
+      document.getElementById('edit-ticket-quantity').value = quantityElement.innerText;
+      document.getElementById('edit-ticket-type').value = typeElement.innerText;
+    } else {
+      console.error(`Erro: Elementos do ingresso ${ticketId} não encontrados.`);
+      return;
+    }
+
+    
+    document.getElementById('editTicketModal').style.display = 'block';
+  });
+});
+
+// Fechar modal
+function closeEditModal() {
+  document.getElementById('editTicketModal').style.display = 'none';
+}
+
+// Enviar formulário de edição
+document.getElementById('editTicketForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const ticketId = document.getElementById('edit-ticket-id').value;
+  const updatedTicket = {
+    name: document.getElementById('edit-ticket-name').value,
+    price: document.getElementById('edit-ticket-price').value,
+    quantity: document.getElementById('edit-ticket-quantity').value,
+    type: document.getElementById('edit-ticket-type').value,
+    image: document.getElementById('edit-ticket-image').value,
+    description: document.getElementById('edit-ticket-description').value
+  };
+
+  try {
+    const response = await fetch(`/admin/tickets/${ticketId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updatedTicket)
+    });
+
+    if (response.ok) {
+      alert('Ingresso atualizado com sucesso!');
+      window.location.reload();
+    } else {
+      alert('Erro ao atualizar ingresso.');
+    }
+  } catch (error) {
+    console.error('Erro ao editar ingresso:', error);
+  }
+});
