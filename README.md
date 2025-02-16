@@ -3,6 +3,7 @@
 ![image](https://github.com/user-attachments/assets/fc93c735-ec14-45cd-8113-94dd1b0ed06c)
 - Área de Visualização de ingressos disponíveis na BlueTicket
 ![image](https://github.com/user-attachments/assets/2226d6a0-9365-42f2-855b-7f9f1e468734)
+![image](https://github.com/user-attachments/assets/95c39883-5923-45be-91ee-eee331e4e21a)
 - Área para finalização da compra
 ![image](https://github.com/user-attachments/assets/fd896ed0-3dba-492b-adaa-74d6282c4ca5)
 ![image](https://github.com/user-attachments/assets/c4184d7a-7b5a-4a95-a220-bedc7afb7fc7)
