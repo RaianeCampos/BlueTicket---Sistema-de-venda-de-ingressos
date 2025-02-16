@@ -7,7 +7,7 @@ exports.isAuthenticated = (req, res, next) => {
   const token = req.cookies.token; // Lê o token do cookie
 
   if (!token) {
-    return res.status(401).json({ error: 'Acesso negado. Nenhum token fornecido.' });
+    return res.redirect('/login');
   }
 
   try {

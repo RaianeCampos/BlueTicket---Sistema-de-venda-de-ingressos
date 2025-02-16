@@ -166,3 +166,9 @@ function checkAuth() {
 
 // Executa a verificação quando a página é carregada
 checkAuth();
+
+//retira o token do cookie
+function logout() {
+  document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  window.location.href = "/login"; // Redireciona para a página de login
+}
