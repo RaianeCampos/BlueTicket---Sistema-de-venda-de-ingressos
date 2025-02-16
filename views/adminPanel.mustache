@@ -94,12 +94,19 @@
   <div class="modal-content">
     <h2>Editar Ingresso</h2>
     <form id="editTicketForm">
+    <div class="form-contents">
       <input type="hidden" id="edit-ticket-id">
       <label>Nome:</label>
+    </div>
+    <div class="form-contents">
       <input type="text" id="edit-ticket-name" required>
       <label>Preço:</label>
+    </div>
+    <div class="form-contents">
       <input type="number" id="edit-ticket-price" required>
       <label>Quantidade:</label>
+    </div>
+    <div class="form-contents">
       <input type="number" id="edit-ticket-quantity" required>
       <label>Tipo:</label>
       <select id="edit-ticket-type">
@@ -109,10 +116,15 @@
         <option value="VIP">VIP</option>
         <option value="Camarotes">Camarotes</option>
       </select>
+    </div>
+    <div class="form-contents">
       <label>Imagem (URL):</label>
       <input type="text" id="edit-ticket-image">
+    </div>
+    <div class="form-contents">
       <label>Descrição:</label>
       <textarea id="edit-ticket-description"></textarea>
+    </div>
       <button type="submit">Salvar Alterações</button>
       <button type="button" onclick="closeEditModal()">Cancelar</button>
     </form>
