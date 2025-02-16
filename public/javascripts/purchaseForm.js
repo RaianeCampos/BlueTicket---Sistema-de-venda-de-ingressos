@@ -7,6 +7,7 @@ document.getElementById('purchaseForm').addEventListener('submit', async (e) => 
   const clientPhone = document.getElementById('clientPhone').value;
   const clientEmail = document.getElementById('clientEmail').value;
   const quantity = document.getElementById('quantity').value;
+  const paymentMethod = document.getElementById('paymentMethod').value;
 
   try {
     const response = await fetch('/purchases/purchase', {
@@ -15,7 +16,7 @@ document.getElementById('purchaseForm').addEventListener('submit', async (e) => 
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`, // Token JWT
       },
-      body: JSON.stringify({ ticketId, quantity, clientCode, clientName, clientPhone, clientEmail }),
+      body: JSON.stringify({ ticketId, quantity, clientCode, clientName, clientPhone, clientEmail, paymentMethod }),
     });
 
     if (response.ok) {

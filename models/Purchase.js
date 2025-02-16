@@ -29,6 +29,11 @@ const Purchase = sequelize.define('Purchase', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  paymentMethod: {
+    type: DataTypes.ENUM('Dinheiro', 'Pix', 'Cartão', 'Boleto'),
+    allowNull: false,
+    defaultValue: 'Dinheiro'
+  },
   status: {
     type: DataTypes.ENUM('pendente', 'concluída', 'cancelada'),
     defaultValue: 'pendente',

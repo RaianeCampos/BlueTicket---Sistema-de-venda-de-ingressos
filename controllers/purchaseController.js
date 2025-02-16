@@ -45,7 +45,7 @@ exports.getPurchaseHistory = async (req, res) => {
 };
 
 exports.processPurchase = async (req, res) => {
-  const { ticketId, quantity, clientCode, clientName, clientPhone, clientEmail } = req.body;
+  const { ticketId, quantity, clientCode, clientName, clientPhone, clientEmail, paymentMethod } = req.body;
   const userId = req.user.id; // Obtém o ID do usuário autenticado
 
   try {
@@ -73,6 +73,7 @@ exports.processPurchase = async (req, res) => {
       clientName,
       clientPhone,
       clientEmail,
+      paymentMethod,
       status: 'concluída',
     });
 

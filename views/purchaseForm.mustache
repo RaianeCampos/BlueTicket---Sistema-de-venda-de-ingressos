@@ -31,6 +31,15 @@
         <label for="quantity">Quantidade:</label>
         <input type="number" id="quantity" name="quantity" min="1" required>
       </div>
+      <div class="form-contents">
+        <label for="paymentMethod">Forma de Pagamento:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+          <option value="Dinheiro">Dinheiro</option>
+          <option value="Pix">Pix</option>
+          <option value="Cartão">Cartão</option>
+          <option value="Boleto">Boleto</option>
+        </select>
+      </div>
       <button type="submit" class="btn">Finalizar Compra</button>
       <p id="error" class="error"></p>
     </form>
